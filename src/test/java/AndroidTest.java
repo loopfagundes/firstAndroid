@@ -40,6 +40,15 @@ public class AndroidTest {
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"ADD TO CART\").instance(0)")).click();
         System.out.println("Produto encontrado: " + driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"Sauce Labs Backpack\")")).getText());
 
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiSelector().className(\"android.widget.ImageView\").instance(3)")).click();
+        Thread.sleep(1000);
+        driver.findElement(new AppiumBy.ByAccessibilityId("test-CHECKOUT")).click();
+        Thread.sleep(1000);
+        driver.findElement(new AppiumBy.ByAccessibilityId("test-First Name")).sendKeys("Ricardo");
+        driver.findElement(new AppiumBy.ByAccessibilityId("test-Last Name")).sendKeys("Costa");
+        driver.findElement(new AppiumBy.ByAccessibilityId("test-Zip/Postal Code")).sendKeys("9111000");
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"CONTINUE\")")).click();
+
     }
 
     @AfterTest
